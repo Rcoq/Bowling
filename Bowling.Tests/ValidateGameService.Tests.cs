@@ -76,7 +76,7 @@ namespace Bowling.Tests
         {
             // Arrange
             var validateGameService = new ValidateGameService();
-            var shots = new List<Shot> { new Shot(0), new Shot(9), new Shot(10) };
+            var shots = new List<Shot> { new Shot(9), new Shot(9), new Shot(10) };
             var frame = new Frame(10, shots);
 
             // act & Assert
@@ -173,8 +173,6 @@ namespace Bowling.Tests
             // act & Assert
             Assert.Throws<NullReferenceException>(() => validateGameService.CheckValidatyFramesShotsValue(frame));
         }
-
-
 
     }
 }

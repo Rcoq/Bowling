@@ -91,7 +91,7 @@ namespace Bowling.Services
         public void CheckValidatyFramesShotsValue(Frame frame)
         {
             if (frame == null)
-                throw new NullReferenceException($"Frrame is null");
+                throw new NullReferenceException($"Frame is null");
             // The specific case is the frame number 10 if it has 3 shot and the first it is not a strike
             // 8 - 2 - 10 is valid
             // 8 - 0 - 10 is no valid

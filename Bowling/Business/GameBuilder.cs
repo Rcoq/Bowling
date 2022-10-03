@@ -12,6 +12,10 @@ namespace Bowling.Business
         }
         public Game Build(string[] shots)
         {
+            if(shots == null)
+                throw new NullReferenceException($"Shots paramater is null");
+            if (shots.Length == 0) 
+                throw new ArgumentOutOfRangeException(nameof(shots),$"Shots paramater = 0");
 
             _validateGame.CheckValidatyShotsNumber(shots.Length);
             _validateGame.CheckValidatyShotsValue(shots);

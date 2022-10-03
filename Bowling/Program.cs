@@ -78,29 +78,20 @@ using Bowling.Services;
 //var parameters = new string[] { "1","2","10","0","10","4","2","0","10","6","2","0","10","6","4","8","2","2","8","8"};
 //var parameters = new string[] { "1", "2", "10", "0", "10", "4", "2", "0", "10", "6", "2", "0", "10", "6", "4", "8", "2", "2", "8", "8" };
 //var parameters = new string[] { "1", "2", "10", "0", "10", "4", "2", "0", "10", "6", "2", "0", "10", "6", "4", "8", "2", "2", "10" };
-var parameters = new string[] { "2", "1", "10", "0", "10", "4", "2", "0", "10", "6", "2", "0", "10", "6", "4", "8", "2", "9", "10", "10" };
+//var parameters = new string[] { "2", "1", "10", "0", "10", "4", "2", "0", "10", "6", "2", "0", "10", "6", "4", "8", "2", "9", "10", "10" };
+//var parameters = new string[] {"1", "1" , "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1"};
+var parameters = new string[] {"1","2","3","4","2","8", "1","2" };
+
+
 
 var validateGameService = new ValidateGameService();
 var gameBuilder = new GameBuilder(validateGameService);
 
-try
-{
-    var game = gameBuilder.Build(parameters);
-    var scoringComputeSystem = new ScoringComputeSystem();
+
+var game = gameBuilder.Build(args);
+var scoringComputeSystem = new ScoringComputeSystem();
+scoringComputeSystem.Compute(game);
 
 
-}
-catch (ArgumentNullException e)
-{
-    Console.WriteLine("Invalid game : {0} ", e.Message);
-}
-catch (ArgumentOutOfRangeException e)
-{
-    Console.WriteLine("Invalid game : {0} {1}", e.GetType().Name, e.Message);
-}
-catch (FormatException e)
-{
-    Console.WriteLine("Invalid game : {0} ", e.Message);
-}
 
 
