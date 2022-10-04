@@ -23,7 +23,7 @@ else
     var game = gameService.Create(frameList);
 
     var scoringComputeSystem = new ScoringComputeSystem();
-    Console.Write(scoringComputeSystem.ComputeGame(game));
+    scoringComputeSystem.ComputeGame(game);
 }
 
 
