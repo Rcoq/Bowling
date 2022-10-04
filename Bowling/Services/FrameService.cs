@@ -92,9 +92,11 @@ namespace Bowling.Services
             // Check Validity for the frame 10
             if (frame.Id == 10)
             {
-                if (frame.TypeIs == Frame.Type.Strike && (frame.Score != 10)) 
+                if (frame.TypeIs == Frame.Type.Strike && (frame.ShootsList[0].Value != 10)) 
                     throw new ArgumentOutOfRangeException(nameof(frame.Id), $"The frame {frame.Id} is not valid.");
                 if (frame.TypeIs == Frame.Type.Spare && (frame.ShootsList.Count <2 || frame.Score < 10)) 
+                    throw new ArgumentOutOfRangeException(nameof(frame.Id), $"The frame {frame.Id} is not valid.");
+                if (frame.TypeIs == Frame.Type.Normal && (frame.Score > 10))
                     throw new ArgumentOutOfRangeException(nameof(frame.Id), $"The frame {frame.Id} is not valid.");
             }
             // Check Validty for the frame under 10

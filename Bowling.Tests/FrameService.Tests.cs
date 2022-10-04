@@ -37,7 +37,7 @@ namespace Bowling.Tests
 
         // Test Creat() method       
         [Fact]
-        public void Frame_Is_A_Strike_With_2_Shots()
+        public void Frame1_Is_A_Strike_With_2_Shots()
         {
             // Arrange
             var shotsList = new List<Shot>() { new Shot(10), new Shot(2) };
@@ -49,7 +49,7 @@ namespace Bowling.Tests
         }
 
         [Fact]
-        public void Frame_Is_A_Strike_With_A_Score_More_Than_10()
+        public void Frame1_Is_A_Strike_With_A_Score_More_Than_10()
         {
             // Arrange
             var shotsList = new List<Shot>() { new Shot(2) };
@@ -61,7 +61,7 @@ namespace Bowling.Tests
         }
 
         [Fact]
-        public void Frame_Is_A_Spare_With_Only_Shot()
+        public void Frame1_Is_A_Spare_With_Only_Shot()
         {
             // Arrange
             var shotsList = new List<Shot>() { new Shot(2) };
@@ -73,7 +73,7 @@ namespace Bowling.Tests
         }
 
         [Fact]
-        public void Frame_Is_A_Spare_With_A_Score_More_Than_10()
+        public void Frame1_Is_A_Spare_With_A_Score_More_Than_10()
         {
             // Arrange
             var shotsList = new List<Shot>() { new Shot(2) };
@@ -85,14 +85,38 @@ namespace Bowling.Tests
         }
 
         [Fact]
-        public void Frame10_Is_A_Spare_Strike_With_Two_Shots()
+        public void Frame10_Is_A_Spare_With_Two_Shots()
         {
             // Arrange
-            var shotsList = new List<Shot>() { new Shot(10), new Shot(2) };
+            var shotsList = new List<Shot>() { new Shot(7), new Shot(2) };
             var frameService = new FrameService();
 
             // Act && Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => frameService.Create(10, shotsList, Frame.Type.Strike));
+
+        }
+
+        [Fact]
+        public void Frame10_Is_A_Normal_With_Two_Shots_Bad_Value()
+        {
+            // Arrange
+            var shotsList = new List<Shot>() { new Shot(9), new Shot(9) };
+            var frameService = new FrameService();
+
+            // Act && Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => frameService.Create(10, shotsList, Frame.Type.Normal));
+
+        }
+
+        [Fact]
+        public void Frame10_Is_A_Strike_With_Two_Shots_Bad_Value()
+        {
+            // Arrange
+            var shotsList = new List<Shot>() { new Shot(8), new Shot(9), new Shot(1) };
+            var frameService = new FrameService();
+
+            // Act && Assert
+            Assert.Throws<ArgumentOutOfRangeException>(() => frameService.Create(10, shotsList, Frame.Type.Normal));
 
         }
     }

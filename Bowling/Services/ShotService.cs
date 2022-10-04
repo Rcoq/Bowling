@@ -2,12 +2,12 @@
 
 namespace Bowling.Services
 {
-    public  class ShotService
+    public  class ShotService : Ic
     {
         public List<Shot> CreateList(string[] shots)
         {
             if (shots == null || shots.Length == 0)
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException(nameof(shots), $"The shots list is not valid. Shots List = 0");
 
             var shotsList = new List<Shot>();
             foreach (var shot in shots)
