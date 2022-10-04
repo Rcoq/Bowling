@@ -8,7 +8,7 @@
         private Type _type;
         private List<Shot> _shotsList;
 
-        public Frame(int id, List<Shot> shotsList, Type type = Type.Normal)
+        public Frame(int id, List<Shot> shotsList, Type type)
         {
             _shotsList = shotsList;
             _id = id;

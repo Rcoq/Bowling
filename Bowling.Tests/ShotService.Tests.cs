@@ -1,4 +1,5 @@
-﻿using Bowling.Services;
+﻿using Bowling.Models;
+using Bowling.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,27 @@ namespace Bowling.Tests
 {
     public class ShotServiceTest
     {
+        // Test Creat() method       
+ 
+        [Fact]
+        public void Create_Shots_List_With_Null_Array_Shots()
+        {
+            // Arrange
+            var shotService = new ShotService();
+
+            // act & Assert 
+            Assert.Throws<ArgumentOutOfRangeException>(() => shotService.CreateList(null));
+        }
+
+        [Fact]
+        public void Create_Shots_List_With_Empty_Array_Shot()
+        {
+            // Arrange
+            var shotService = new ShotService();
+
+            // act & Assert 
+            Assert.Throws<ArgumentOutOfRangeException>(() => shotService.CreateList(Array.Empty<string>()));
+        }
         [Theory]
         [InlineData("a")]
         [InlineData("-1")]
