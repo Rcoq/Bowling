@@ -1,26 +1,25 @@
 ﻿using Bowling.Models;
-using Bowling.Services;
 
-namespace Bowling.Business
+namespace Bowling.Services
 {
-    public class GameBuilder
+    public class GameService
     {
-        private readonly IValidateGame _validateGame;
-        public GameBuilder(IValidateGame validateGame)
+        private readonly IValidation _validateGame;
+        public GameService(IValidation validateGame)
         {
             _validateGame = validateGame;
         }
-        public Game Build(string[] shots)
+        public Game Create(string[] shots)
         {
-            if(shots == null)
+            if (shots == null)
                 throw new NullReferenceException($"Shots paramater is null");
-            if (shots.Length == 0) 
-                throw new ArgumentOutOfRangeException(nameof(shots),$"Shots paramater = 0");
+            if (shots.Length == 0)
+                throw new ArgumentOutOfRangeException(nameof(shots), $"Shots paramater = 0");
 
             _validateGame.CheckValidatyShotsNumber(shots.Length);
             _validateGame.CheckValidatyShotsValue(shots);
 
-            var frames = CreateFrames(shots.Select(x =>uint.Parse(x)).ToList());
+            var frames = CreateFrames(shots.Select(x => uint.Parse(x)).ToList());
 
 
             return new Game(frames);
@@ -48,7 +47,7 @@ namespace Bowling.Business
 
                     i++;
                 }
-                
+
                 else if (shotsParsed[i] == 10)
                 {
                     i++;

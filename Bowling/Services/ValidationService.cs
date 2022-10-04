@@ -2,7 +2,7 @@
 
 namespace Bowling.Services
 {
-    public class ValidateGameService : IValidateGame
+    public class ValidationService : IValidation
     {
 
         //public bool GameIsValid() { return true; }

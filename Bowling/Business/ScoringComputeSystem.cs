@@ -16,7 +16,10 @@ namespace Bowling.Business
             {
                 if (game.FramesList[0].TypeIs == Frame.Type.Strike)
                 {
+                    score += StrikeCompute();
 
+                    if (i + 1 < game.FramesList.Count && game.FramesList[0].TypeIs == Frame.Type.Strike )
+                        score += StrikeCompute();
                 }
                 else if (game.FramesList[i].TypeIs == Frame.Type.Spare) {
                     if (i + 1 < game.FramesList.Count)
@@ -33,8 +36,13 @@ namespace Bowling.Business
 
         }
 
+        public uint ComputeFrame(Frame frame)
+        {
+            return 0;
+        }
 
-        private int StrikeCompute() { return 0; }
+
+        private uint StrikeCompute() { return 10; }
         private uint SpareCompute(Frame firstFrame, Frame? secondFrame) {
 
             return NormalCompute(firstFrame) + (secondFrame != null ? secondFrame.ShootsList[0].Value : 0) ;

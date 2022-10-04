@@ -10,7 +10,7 @@ namespace Bowling.Tests
         public void CheckValidatyShotsNumber_Is_Null()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
 
             // act & Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => validateGameService.CheckValidatyShotsNumber(null));
@@ -20,7 +20,7 @@ namespace Bowling.Tests
         public void CheckValidatyShotsNumber_Is_0()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
 
             // act & Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => validateGameService.CheckValidatyShotsNumber(0));
@@ -30,7 +30,7 @@ namespace Bowling.Tests
         public void CheckValidatyShotsNumber_Is_More_Than_21()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
 
             // act & Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => validateGameService.CheckValidatyShotsNumber(22));
@@ -39,7 +39,7 @@ namespace Bowling.Tests
         public void CheckValidatyShotsNumber_Is_Correct()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
 
             // act & Assert
             validateGameService.CheckValidatyShotsNumber(8);
@@ -51,7 +51,7 @@ namespace Bowling.Tests
         public void CheckValidatyShotsValue_Is_Incorrect_cause_letter()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var shotsValue = new string[] { "1", "2", "a", "10" };
 
             // act & Assert
@@ -62,7 +62,7 @@ namespace Bowling.Tests
         public void CheckValidatyShotsValue_Is_Incorrect_cause_value_more_than_10()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var shotsValue = new string[] { "1", "2", "a", "10" };
 
             // act & Assert
@@ -75,7 +75,7 @@ namespace Bowling.Tests
         public void CheckValidatyFramesShotsValue_Frame10_Have_Incorrect_Shots_01()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var shots = new List<Shot> { new Shot(9), new Shot(9), new Shot(10) };
             var frame = new Frame(10, shots);
 
@@ -87,7 +87,7 @@ namespace Bowling.Tests
         public void CheckValidatyFramesShotsValue_Frame10_Have_Incorrect_Shots_02()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var shots = new List<Shot> { new Shot(0), new Shot(9), new Shot(10) };
             var frame = new Frame(10, shots);
 
@@ -99,7 +99,7 @@ namespace Bowling.Tests
         public void CheckValidatyFramesShotsValue_Frame10_Have_Incorrect_Shots_03()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var shots = new List<Shot> { new Shot(9), new Shot(9), new Shot(10) };
             var frame = new Frame(10, shots);
 
@@ -114,7 +114,7 @@ namespace Bowling.Tests
         public void CheckValidatyFramesShotsValue_Frame10_Have_Incorrect_Shots_04()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var frame = new Frame(10, new List<Shot> { new Shot(9), new Shot(9) });
 
             // act & Assert
@@ -125,7 +125,7 @@ namespace Bowling.Tests
         public void CheckValidatyFramesShotsValue_Frame10_Have_Incorrect_Shots_05()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var shots = new List<Shot> { new Shot(0), new Shot(8), new Shot(10) };
             var frame = new Frame(10, shots);
         }
@@ -134,7 +134,7 @@ namespace Bowling.Tests
         public void CheckValidatyFramesShotsValue_Frame10_Have_Incorrect_Shots_06()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var shots = new List<Shot> { new Shot(2), new Shot(8), new Shot(10) };
             var frame = new Frame(10, shots);
         }
@@ -143,7 +143,7 @@ namespace Bowling.Tests
         public void CheckValidatyFramesShotsValue_Frame10_Have_Incorrect_Shots_07()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var shots = new List<Shot> { new Shot(0), new Shot(0), new Shot(10) };
             var frame = new Frame(10, shots);
 
@@ -156,7 +156,7 @@ namespace Bowling.Tests
         public void CheckValidatyFramesShotsValue_Frame2_Have_Incorrect_Shots_01()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var frame = new Frame(2, new List<Shot> { new Shot(9), new Shot(9)});
 
             // act & Assert
@@ -167,7 +167,7 @@ namespace Bowling.Tests
         public void CheckValidatyFramesShotsValue_Frame2_Have_Incorrect_Shots_02()
         {
             // Arrange
-            var validateGameService = new ValidateGameService();
+            var validateGameService = new ValidationService();
             var frame = new Frame(2, null);
 
             // act & Assert
