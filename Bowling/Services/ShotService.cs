@@ -2,7 +2,7 @@
 
 namespace Bowling.Services
 {
-    public  class ShotService : Ic
+    public  class ShotService 
     {
         public List<Shot> CreateList(string[] shots)
         {
