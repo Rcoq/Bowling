@@ -4,9 +4,6 @@ using Bowling.Business;
 using Bowling.Models;
 using Bowling.Services;
 
-
-//args = new string[] { "1", "2", "10", "0", "10", "4" };
-
 if (args == null || args.Length < 1 || args.Length > 21)
 {
     Console.WriteLine($"The number of parameters must be beteween 1 and 21. Actual value {args?.Length}");
